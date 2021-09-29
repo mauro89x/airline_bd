@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +18,8 @@ public class AirportServiceImpl implements AirportService {
     @Autowired
     private FlightRepository flightRepository;
 
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     @Transactional
@@ -92,5 +93,18 @@ public class AirportServiceImpl implements AirportService {
         Optional<Airplane> airplane = this.airplaneRepository.findById(id);
         List<Flight> flights = airplane.isPresent() ? airplane.get().getFlights() : null;
         return flights;
+    }
+
+    @Override
+    @Transactional
+    public User createUser(User user) {
+        return this.userRepository.save(user);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public User getUserByID(long id) {
+        Optional<User> user = this.userRepository.findById(id);
+        return user.orElse(null);
     }
 }

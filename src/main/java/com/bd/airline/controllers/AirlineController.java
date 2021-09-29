@@ -75,5 +75,14 @@ public class AirlineController {
     public List<Flight> getFlightsByAirplaneID(@PathVariable long id){
         return this.service.getFlightsByAirplaneID(id);
     }
+    @PostMapping(path = "/users")
+    public User newUser(@RequestBody User user) {
+        return this.service.createUser(user);
+    }
+
+    @GetMapping(path = "/users/{id}")
+    public User getUser(@PathVariable long id) {
+        return this.service.getUserByID(id);
+    }
 
 }
