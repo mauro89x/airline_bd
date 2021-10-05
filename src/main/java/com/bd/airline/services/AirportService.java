@@ -32,6 +32,9 @@ public interface AirportService {
 
     List<Flight> getFlightsByAirplaneID(long id);
 
+    User createUser(User user);
+
+    User getUserByID(long id);
     /*
      * METODOS A IMPLEMENTAR
      * Es probable que para implementar ciertas funcionalidades necesiten de mas metodos,
@@ -39,11 +42,12 @@ public interface AirportService {
      * que cumplan con las funcionalidades
      */
  /*
-    User createUser(User user);
+    ##### DONE #####
+    User createUser(User user); --> done
+    User getUserByID(long id); --> done
+    #### DONE #####
 
     User updateUser(User user);
-
-    User getUserByID(long id);
 
     User getUserByUsername(String username);
 
