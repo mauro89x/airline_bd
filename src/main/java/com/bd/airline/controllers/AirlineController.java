@@ -85,4 +85,26 @@ public class AirlineController {
         return this.service.getUserByID(id);
     }
 
+    @GetMapping(path = "/users/username/{username}")
+    public User getUserByUsername(@PathVariable String username)  {
+        return  this.service.getUserByUsername(username);
+    }
+
+    @GetMapping(path = "/users/email/{email}")
+    public User getUserByEmail(@PathVariable String email)  {
+        return  this.service.getUserByEmail(email);
+    }
+
+    @DeleteMapping(path = "/users/{id}")
+    public Object deleteUser(@PathVariable long id){
+        return this.service.deleteUser(this.service.getUserByID(id));
+    }
+
+    @PutMapping(path= "/users/{id}")
+    public User updateUser(@RequestBody User user, @PathVariable long id){
+        if(this.service.getUserByID(id) != null) {
+            return this.service.updateUser(user);
+        }
+        return null;
+    }
 }

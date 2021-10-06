@@ -35,6 +35,14 @@ public interface AirportService {
     User createUser(User user);
 
     User getUserByID(long id);
+
+    User updateUser(User user);
+
+    User getUserByUsername(String username);
+
+    User getUserByEmail(String email);
+
+    boolean deleteUser(User user);
     /*
      * METODOS A IMPLEMENTAR
      * Es probable que para implementar ciertas funcionalidades necesiten de mas metodos,
@@ -45,15 +53,13 @@ public interface AirportService {
     ##### DONE #####
     User createUser(User user); --> done
     User getUserByID(long id); --> done
+    User updateUser(User user); --> done
+    User getUserByUsername(String username); --> done
+    User getUserByEmial(String email); --> done
+    boolean deleteUser(User user); --> done
     #### DONE #####
 
-    User updateUser(User user);
 
-    User getUserByUsername(String username);
-
-    User getUserByEmial(String email);
-
-    boolean deleteUser(User user);
 
     Reservation createReservation(Reservation reservation, List<Passenger> passengers);
 

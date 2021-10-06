@@ -17,6 +17,17 @@ public class User {
     @Column(name="password")
     private String password;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Column(name="email")
+    private String email;
+
     public Long getId() {
         return id;
     }
