@@ -107,4 +107,34 @@ public class AirportServiceImpl implements AirportService {
         Optional<User> user = this.userRepository.findById(id);
         return user.orElse(null);
     }
+
+    @Override
+    @Transactional
+    public User updateUser(User user) {
+        return this.userRepository.save(user);
+    }
+
+    @Override
+    @Transactional
+    public User getUserByUsername(String username) {
+        return this.userRepository.findByUsername(username);
+    }
+
+    @Override
+    @Transactional
+    public User getUserByEmail(String email) {
+        return this.userRepository.findByEmail(email);
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteUser(User user) {
+        try{
+            this.userRepository.deleteById(user.getId());
+        }
+        catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
 }
