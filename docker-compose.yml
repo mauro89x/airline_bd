@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  airline_app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: tpbd
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - airline-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tpbd
+volumes:
+  airline-db:
